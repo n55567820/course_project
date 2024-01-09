@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include("courses.urls")),
+    path('jwtauth/', include('jwtauth.urls')),  # 包含 jwtauth 的 URL 配置
 ]
