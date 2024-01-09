@@ -1,0 +1,34 @@
+version: "3.8"
+
+networks:
+  default:
+    name: course-project
+
+services:
+  course-project:
+    build:
+      context: .
+    image: django-course-project
+    container_name: course-project
+    volumes:
+      - .:/srv/course_project
+    ports:
+      - 8000:8000
+    working_dir: /srv/course_project
+    environment:
+      STAGE: ${STAGE}
+    restart: always
+    command: tail -f /dev/null
+
+  course-project-postgres:
+    image: postgres:13-alpine
+    container_name: course-project-postgres
+    environment:
+      POSTGRES_DB: course-project
+      POSTGRES_USER: ${COURSE_PROJECT_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${COURSE_PROJECT_POSTGRES_PASSWORD}
+    # volumes:
+    #   - ./secrets/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5555:5432
+    restart: always

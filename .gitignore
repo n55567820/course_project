@@ -1,0 +1,39 @@
+# ╔══════════╗
+# ╠  System  ╣
+# ╚══════════╝
+# Mac: desktop services store
+.DS_Store
+# Windows: image cache file
+Thumbs.db
+# Google: google cloud sync
+.tmp.drivedownload/
+*.driveupload
+# folder structure force keep
+!**/.gitkeep
+.env
+
+
+# ╔══════════╗
+# ╠  Editor  ╣
+# ╚══════════╝
+# Visual Studio Settings
+.devcontainer/
+.vscode/
+
+# ╔══════════╗
+# ╠  Python  ╣
+# ╚══════════╝
+# python byte-compiled
+*.py[cod]
+__pycache__/
+# python package management
+poetry.lock
+pyproject.toml
+
+# ╔══════════╗
+# ╠  sqlite  ╣
+# ╚══════════╝
+db.sqlite3
+
+
+*.log
