@@ -54,7 +54,14 @@ INSTALLED_APPS = [
     # "drf_yasg",
     "django_filters",
     'corsheaders',
+
+    'courses',
 ]
+
+REST_FRAMEWORK = {
+  'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.AllowAny',],
+  'DEFAULT_PARSER_CLASSES':['rest_framework.parsers.JSONParser',],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
