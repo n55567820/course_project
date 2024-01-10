@@ -51,7 +51,7 @@ INSTALLED_APPS = [
 
     "django_extensions",
     "rest_framework",
-    # "drf_yasg",
+    "drf_yasg",
     "django_filters",
     'corsheaders',
 
@@ -77,6 +77,13 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
+
+SWAGGER_SETTINGS = {
+  'DEFAULT_MODEL_RENDERING': 'example',
+  'SHOW_COMMON_EXTENSIONS': False,
+  'DISPLAY_OPERATION_ID': False,
+  'USE_SESSION_AUTH': True,
+}
 
 ROOT_URLCONF = 'course_project.urls'
 
