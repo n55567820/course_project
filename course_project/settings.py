@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+from datetime import timedelta
 
 load_dotenv()
 
@@ -59,12 +60,6 @@ INSTALLED_APPS = [
     'jwtauth',
 ]
 
-REST_FRAMEWORK = {
-  'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated',],
-  'DEFAULT_PARSER_CLASSES': ['rest_framework.parsers.JSONParser',],
-  'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework.authentication.SessionAuthentication','rest_framework_simplejwt.authentication.JWTAuthentication',],
-}
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -78,6 +73,20 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
+#  RestFramework 設定
+REST_FRAMEWORK = {
+  'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated',],
+  'DEFAULT_PARSER_CLASSES': ['rest_framework.parsers.JSONParser',],
+  'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework.authentication.SessionAuthentication','rest_framework_simplejwt.authentication.JWTAuthentication',],
+}
+
+# SimpleJWT 設定
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),  # 設定Access Token的有效期限
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # 設定Refresh Token的有效期限
+}
+
+# Swagger 設定
 SWAGGER_SETTINGS = {
   'DEFAULT_MODEL_RENDERING': 'example',
   'SHOW_COMMON_EXTENSIONS': False,
