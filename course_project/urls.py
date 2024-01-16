@@ -22,7 +22,7 @@ from drf_yasg import openapi
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include("courses.urls")),
-    path('api/jwtauth/', include('jwtauth.urls')),  # 包含 jwtauth 的 URL 配置
+    path('jwtauth/', include('jwtauth.urls')),  # 包含 jwtauth 的 URL 配置
 ]
 
 # Swagger
